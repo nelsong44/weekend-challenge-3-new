@@ -2,6 +2,16 @@ h1, #userInputDiv, table, th {
   text-align: center;
 }
 
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.innerContainer {
+  width: 60%;
+  margin: 0 auto;
+}
+
 #userInputDiv {
   margin-bottom: 20px;
 }
@@ -11,17 +21,20 @@ h1, #userInputDiv, table, th {
 }
 
 table {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
-  border-bottom: 10px;
   border-collapse: collapse;
-  border-bottom: 10px solid #F9E79F;
-  /*border-radius: 30px;*/
+  border-spacing: 0;
 }
 
-td {
+td:nth-child(2), td:nth-child(3) {
   border-left: 1px solid #ABB2B9;
   border-right: 1px solid #ABB2B9;
+}
+
+tr:last-child td:nth-child(2), tr:last-child td:nth-child(3) {
+  border-left: none;
+  border-right: none;
 }
 
 tr {
@@ -30,15 +43,44 @@ tr {
 
 tr:nth-child(odd) {
   /*background: rgba(186, 74, 0, 0.2);*/
-  background-color: #D6DBDF;
+  background-color: #EAEDED;
 }
 
 th {
-  background-color: #F9E79F;
+  background-color: #2471A3;
+}
+
+th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 05px 0;
 }
 
 .delete {
-  background-color: #85929E;
+  background-color: #F2F3F4;
   border-radius: 5px;
   border: none;
+}
+
+td:first-child {
+  background-color: rgba(52, 152, 219, 0.4);
+}
+
+td:last-child {
+  background-color: rgba(21, 67, 96, 0.4);
+}
+
+#lastRow {
+  height: 10px;
+  background-color: #2471A3;
 }
