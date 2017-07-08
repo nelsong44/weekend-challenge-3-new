@@ -15,7 +15,7 @@ function getTasks() {
       //verify data from db
       console.log('Retrieved tasks from db: ', response);
       //call to display tasks on DOM
-      displayOnDom();
+      displayOnDom(response);
     }//end success
   });//end get
 }//end getTasks
@@ -39,16 +39,26 @@ function addTask() {
     success: function(response) {
       //confirm success through logging message
       console.log('task sent to server: ' + response);
+      getTasks();
     }//end success
   });//end post
   }//end addTask
 
 //append tasks to DOM
-function displayOnDom() {
-  console.log('displayOnDom called');
-  // var singleTask =
-  // console.log(singleTask);
+function displayOnDom(tasksFromDb) {
   //clear div before appending updated task list
-  // $('#taskList').empty();
-  // $('#taskList').append(singleTask);
-}
+  $('#tasksDiv').empty();
+  //append tasks to DOM
+  for (var i = 0; i < tasksFromDb.tasks.length; i++) {
+    var singleTask = tasksFromDb.tasks[i].task;
+    var singleNote = tasksFromDb.tasks[i].notes;
+    var singleId = tasksFromDb.tasks[i].id;
+    console.log(singleTask);
+    console.log(singleNote);
+    var $tr = $('<tr></tr>');
+    $tr.data('singleId', singleId);
+    $tr.append('<td>' + singleTask + '</td>');
+    $tr.append('<td>' + singleNote + '</td>');
+    $('#tasksDiv').append($tr);
+  }//end for
+}//end displayOnDom
