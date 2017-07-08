@@ -1,0 +1,44 @@
+h1, #userInputDiv, table, th {
+  text-align: center;
+}
+
+#userInputDiv {
+  margin-bottom: 20px;
+}
+
+#tasksDiv {
+  width: 100%;
+}
+
+table {
+  width: 60%;
+  margin: 0 auto;
+  border-bottom: 10px;
+  border-collapse: collapse;
+  border-bottom: 10px solid #F9E79F;
+  /*border-radius: 30px;*/
+}
+
+td {
+  border-left: 1px solid #ABB2B9;
+  border-right: 1px solid #ABB2B9;
+}
+
+tr {
+  line-height: 2em;
+}
+
+tr:nth-child(odd) {
+  /*background: rgba(186, 74, 0, 0.2);*/
+  background-color: #D6DBDF;
+}
+
+th {
+  background-color: #F9E79F;
+}
+
+.delete {
+  background-color: #85929E;
+  border-radius: 5px;
+  border: none;
+}

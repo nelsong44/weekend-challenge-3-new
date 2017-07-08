@@ -30,8 +30,8 @@
     based on task completion status
 
   + deleting a task should be reflected in the db and on the front end
-    - [ ] call deleteTask() using data to target specific task to delete
-    - [ ] permanently delete task from the db, call getTasks() to refresh display
+    - [x] call deleteTask() using data to target specific task to delete
+    - [x] permanently delete task from the db, call getTasks() to refresh display
 
 #### Hard Mode
 * create an 'are you sure: yes / no' option when deleting a task

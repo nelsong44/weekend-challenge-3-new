@@ -135,7 +135,7 @@ function swapStatus() {
 //append tasks to DOM
 function displayOnDom(tasksFromDb) {
   //clear div before appending updated task list
-  $('#tasksDiv').empty();
+  $('#appendedTasks').empty();
   //append tasks to DOM
   for (var i = 0; i < tasksFromDb.tasks.length; i++) {
     var singleTask = tasksFromDb.tasks[i].task;
@@ -145,10 +145,12 @@ function displayOnDom(tasksFromDb) {
     console.log(singleNote);
     var $tr = $('<tr></tr>');
     $tr.data('singleId', singleId);
+    $tr.append('<input type="checkbox" class= "status" data-id="' + singleId + '"></td>');
     $tr.append('<td>' + singleTask + '</td>');
     $tr.append('<td>' + singleNote + '</td>');
-    $tr.append('<button class = "status" data-id="' + singleId + '">Task Complete</td>');
-    $tr.append('<button class = "delete" data-id="' + singleId + '">Delete</td>');
-    $('#tasksDiv').append($tr);
+    $tr.append('<button class ="delete" data-id="' + singleId + '">Delete</td>');
+    $('#appendedTasks').append($tr);
   }//end for
 }//end displayOnDom
+
+//instead of storing sample task in db, append sample text to DOM on page load a have that overwritten by tasks stored in db if they exist, on page load
