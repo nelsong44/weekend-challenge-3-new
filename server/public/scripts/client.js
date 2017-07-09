@@ -87,7 +87,7 @@ function swapStatus() {
       status: status
     },
     success: function(response) {
-      console.log('status changed to true: ', response);
+      console.log('status changed: ', response);
     }//end success
   });//end PUT
 }//end swapStatus
@@ -106,7 +106,7 @@ function displayOnDom(tasksFromDb) {
     $tr.append('<td><input type="checkbox" class="status" data-id="' + singleId + '"></td>');
     $tr.append('<td>' + singleTask + '</td>');
     $tr.append('<td>' + singleNote + '</td>');
-    $tr.append('<td><button class ="delete" data-id="' + singleId + '">Delete</button></td>');
+    $tr.append('<td><button class ="delete" data-id="' + singleId + '"><i class="fa fa-minus-circle"></i></button></td>');
     $('#appendedTasks').append($tr);
   }//end for
   var $trLast = $('<tr id="lastRow"><td></td><td></td><td></td><td></td></tr>');

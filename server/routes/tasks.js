@@ -130,51 +130,51 @@ router.put('/', function(req, res) {
     } else {
         console.log('connected to db!');
         // query to change status in db
-        if(status) {
-          var queryText = 'UPDATE "tasks"' +
-                          ' SET "complete" = true' +
-                          ' WHERE "id" = $1;';
-          // execute query
-          db.query(queryText, [taskId], function(errorQuery, result){
-            // disconnect from pool after query is executed
-            done();
-          // if query fails...
-          if(errorQuery) {
-            console.log('Attempted to query with', queryText);
-            console.log('Error making query');
-            res.sendStatus(500); // internal server error
-            // if query is successful...
-          } else {
-            // Send back success message
-            console.log('Changed status');
-            res.send({message: 'changed status to true'});
-            }
-          });//end query
-        }//end if true
-        // else {
-        //   var otherQueryText = 'UPDATE "tasks"' +
-        //                        ' SET "complete" = false' +
-        //                        ' WHERE "id" = $1;';
-        //   // execute query
-        //   db.query(otherQueryText, [taskId], function(errorQuery, result){
-        //     // disconnect from pool after query is executed
-        //     done();
-        //     // if query fails...
-        //     if(errorQuery) {
-        //       console.log('Attempted to query with', queryText);
-        //       console.log('Error making query');
-        //       res.sendStatus(500); // internal server error
-        //       // if query is successful...
-        //     } else {
-        //       // Send back success message
-        //       console.log('Changed status');
-        //       res.send({message: 'changed status to true'});
-        //     }
-        //   });//end query
-        // }//end else false
-        }//end else connected
-        // });//end pool
-      // }//end else connected
+          if(status == 'true') {
+            console.log('bug');
+            var queryText = 'UPDATE "tasks"' +
+                            ' SET "complete" = true' +
+                            ' WHERE "id" = $1;';
+            // execute query
+            db.query(queryText, [taskId], function(errorQuery, result){
+              // disconnect from pool after query is executed
+              done();
+            // if query fails...
+            if(errorQuery) {
+              console.log('Attempted to query with', queryText);
+              console.log('Error making query');
+              res.sendStatus(500); // internal server error
+              // if query is successful...
+            } else {
+              // Send back success message
+              console.log('Changed status');
+              res.send({message: 'changed status to true'});
+              }
+            });//end query
+          }//end if true
+
+          else if(status == 'false') {
+            var otherQueryText = 'UPDATE "tasks"' +
+                                 ' SET "complete" = false' +
+                                 ' WHERE "id" = $1;';
+            // execute query
+            db.query(otherQueryText, [taskId], function(errorQuery, result){
+              // disconnect from pool after query is executed
+              done();
+              // if query fails...
+              if(errorQuery) {
+                console.log('Attempted to query with', queryText);
+                console.log('Error making query');
+                res.sendStatus(500); // internal server error
+                // if query is successful...
+              } else {
+                // Send back success message
+                console.log('Changed status');
+                res.send({message: 'changed status to false'});
+              }
+            });//end query
+            }//end else false
+          }//end else connected
     });//end pool
 });//end PUT
 
