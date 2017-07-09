@@ -68,7 +68,28 @@ function deleteTask() {
 
 //change completion status of a task
 function swapStatus() {
-  console.log('swapStatus called');
+  var status = $(this)[0].checked;
+  console.log(status);
+  var taskId = $(this).parent().parent().data('singleId');
+  if(status) {
+    $(this).parent().parent().addClass('statusComplete');
+    status = true;
+  }
+  else {
+    $(this).parent().parent().removeClass('statusComplete');
+    status = false;
+  }//end if
+  $.ajax({
+    type: 'PUT',
+    url: '/tasks',
+    data: {
+      taskId: taskId,
+      status: status
+    },
+    success: function(response) {
+      console.log('status changed to true: ', response);
+    }//end success
+  });//end PUT
 }//end swapStatus
 
 //append tasks to DOM
@@ -80,9 +101,6 @@ function displayOnDom(tasksFromDb) {
     var singleTask = tasksFromDb.tasks[i].task;
     var singleNote = tasksFromDb.tasks[i].notes;
     var singleId = tasksFromDb.tasks[i].id;
-    // console.log(singleTask);
-    // console.log(singleNote);
-    // console.log(singleId);
     var $tr = $('<tr></tr>');
     $tr.data('singleId', singleId);
     $tr.append('<td><input type="checkbox" class="status" data-id="' + singleId + '"></td>');
