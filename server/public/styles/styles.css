@@ -14,7 +14,7 @@ height: 40px;
 h1 {
   /*font-family: 'Acme', sans-serif;*/
   /*font-family: 'Changa', sans-serif;*/
-  font-family: 'Life Savers', cursive;
+  /*font-family: 'Life Savers', cursive;*/
   /*font-family: 'Waiting for the Sunrise', cursive;*/
   width: 30%;
   margin: 20px auto -3px auto;
@@ -117,7 +117,11 @@ background-color: rgba(52, 152, 219, 0.3);
 
 .statusComplete {
   text-decoration: line-through;
-  color: rgb(230, 126, 34);
+  color: #38B16D;
+}
+
+#addButton:hover {
+  background-color: #38B16D;
 }
 
 #addButton {
@@ -136,6 +140,9 @@ background-color: rgba(52, 152, 219, 0.3);
 margin-right: 5px;
 }
 
-button:hover, #addButton:hover {
+.delete:hover {
   background-color: rgb(230, 126, 34);
+}
+.edit:hover {
+  background-color: #1471B8;
 }

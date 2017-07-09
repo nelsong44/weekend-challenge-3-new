@@ -7,14 +7,12 @@
   - [x] Input field for user to create a notes for the task
   - [x] Create an 'Add task' button to submit new task
   - [x] Create a div for tasks to be displayed on DOM below input
-  - [ ] Dynamically display a 'Checkbox' and 'Delete' button for each new task
+  - [x] Dynamically display a 'Checkbox' and 'Delete' button for each new task
 
 
 * Store the created task inside db
   - [x] Create new table to store task data in Antares Db, (tasks)
-  - [x] Store a sample task to aid UX that displays on page load
   - [x] GET request to retrieve the stored sample task,  getTasks()
-  - [ ] Overwrite sample task with first created task
 
 
 * Refresh view to include new task when a new task is created
@@ -22,12 +20,17 @@
 
 
 * Create a 'Complete' and 'Delete' option for each task
+  - [x] create buttons with click events for each
+
 
 * Change visual representation of a completed task
   + completing a task should be reflected in the db and on the front end
-    - [x] add column in db table to mark a task as complete or incomplete
-    - [ ] if/switch statement to check status of task, change display
-    based on task completion status
+    - [x] add column in db table to mark a task as complete or incomplete (checkbox)
+    - [x] call swapStatus()
+    - [x] create if statement to check status of task, change display by adding a
+      class (strike though and text color change) if task status is true
+    - [x] change status of task to true in db
+    - [x] if status of task is false, remove class, change status to false in db
 
   + deleting a task should be reflected in the db and on the front end
     - [x] call deleteTask() using data to target specific task to delete
@@ -35,14 +38,17 @@
 
 #### Hard Mode
 * create an 'are you sure: yes / no' option when deleting a task
+  - [x] create alert that appears on click of 'delete' button
 
 #### Pro Mode
 * bring completed tasks to the bottom of the list and newly created tasks to the top of the list
-
+  - [x] prepend uncompleted tasks to DOM dynamically as they are created by user
+  - [x] when checkbox is checked, re-append the task to the bottom of the task list
+  - [x] when checkbox is unchecked, prepend task to top of list
 ---
 ##### Notes
  * CRUD Ops:
- * `createTask()` > PUT
- * `getTasks()` > GET/POST
- * `editTask()` > PUT
- * `deleteTask()` > DELETE
+ * `addTask()` - POST
+ * `getTasks()` - GET
+ * `editTask()` - PUT
+ * `deleteTask()` - DELETE

@@ -59,7 +59,7 @@ function deleteTask() {
   console.log($(this).parent().parent().data('singleId'));
   var taskId = $(this).parent().parent().data('singleId');
   //trigger alert for user to verify delete
-  var answer = confirm("Are you sure?");
+  var answer = confirm("Are you sure you want to delete this task?");
     if (answer) {
       $.ajax({
         type: 'DELETE',
@@ -88,7 +88,7 @@ function swapStatus() {
     $(this).parent().parent().addClass('statusComplete');
     status = true;
     $('#appendedTasks').append(task);
-    alert('Way to Go!');
+    alert('Way to Go!!');
   }
     else {
       $(this).parent().parent().removeClass('statusComplete');
@@ -125,6 +125,6 @@ function displayOnDom(tasksFromDb) {
     $tr.append('<td>' + singleNote + '</td>');
     $tr.append('<td><button class="delete" data-id="' + singleId + '"><i class="fa fa-minus-circle"></i></button></td>');
     $tr.append('<td><button class="edit" data-id="' + singleId + '"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>');
-    $('#appendedTasks').append($tr);
+    $('#appendedTasks').prepend($tr);
   }//end for
 }//end displayOnDom
