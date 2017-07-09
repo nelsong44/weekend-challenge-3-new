@@ -52,18 +52,24 @@ function addTask() {
 function deleteTask() {
   console.log($(this).parent().parent().data('singleId'));
   var taskId = $(this).parent().parent().data('singleId');
-  $.ajax({
-    type: 'DELETE',
-    url: '/tasks',
-    data: {
-      taskId: taskId
-    },
-    success: function(response) {
-      console.log('Deleted task with id: ' + taskId + ' from the db');
-      getTasks();
-    }//end success
-  });//end DELETE
-  getTasks();
+  //trigger alert for user to verify delete
+  var answer = confirm("Are you sure?");
+    if (answer) {
+      $.ajax({
+        type: 'DELETE',
+        url: '/tasks',
+        data: {
+          taskId: taskId
+        },
+        success: function(response) {
+          console.log('Deleted task with id: ' + taskId + ' from the db');
+          getTasks();
+        }//end success
+        });//end DELETE
+        getTasks();
+    } else{
+        return false;
+      }//end if
 }//end deleteTask
 
 //change completion status of a task
@@ -102,12 +108,13 @@ function displayOnDom(tasksFromDb) {
     var singleNote = tasksFromDb.tasks[i].notes;
     var singleId = tasksFromDb.tasks[i].id;
     var $tr = $('<tr></tr>');
+    // var $td = $('<td></td>');
     $tr.data('singleId', singleId);
     $tr.append('<td><input type="checkbox" class="status" data-id="' + singleId + '"></td>');
     $tr.append('<td>' + singleTask + '</td>');
     $tr.append('<td>' + singleNote + '</td>');
-    $tr.append('<td><button class ="delete" data-id="' + singleId + '"><i class="fa fa-minus-circle"></i></button></td>');
-    $tr.append('<td><button class ="edit" data-id="' + singleId + '"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>');
+    $tr.append('<td><button class="delete" data-id="' + singleId + '"><i class="fa fa-minus-circle"></i></button></td>');
+    $tr.append('<td><button class="edit" data-id="' + singleId + '"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>');
     $('#appendedTasks').append($tr);
   }//end for
   var $trLast = $('<tr id="lastRow"><td></td><td></td><td></td><td></td><td></td></tr>');
