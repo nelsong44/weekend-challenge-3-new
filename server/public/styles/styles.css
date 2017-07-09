@@ -25,6 +25,11 @@ h1 {
 
 #userInputDiv {
   margin-bottom: 20px;
+  background-color: #E5E7E9;
+  padding: 10px 0;
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 5px;
 }
 
 #tasksDiv {
@@ -82,7 +87,7 @@ tr:last-child td:last-child {
     border-radius: 0 0 05px 0;
 }
 
-.delete {
+button {
   background-color: #F2F3F4;
   border-radius: 5px;
   border: none;
@@ -111,12 +116,21 @@ background-color: rgba(52, 152, 219, 0.3);
 }
 
 #addButton {
-  background-color: rgb(230, 126, 34);
+  background-color: #3AA6EE;
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 #taskIn, #notesIn, #addButton {
   height: 20px;
+}
+
+#taskIn {
+margin-right: 5px;
+}
+
+button:hover, #addButton:hover {
+  background-color: rgb(230, 126, 34);
 }

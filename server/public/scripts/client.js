@@ -28,25 +28,31 @@ function addTask() {
   var newTask = $('#taskIn').val();
   var taskNotes = $('#notesIn').val();
   console.log(newTask);
-  //send task obj to server
-  $.ajax({
-    type: 'POST',
-    url: '/tasks',
-    data: {
-      newTask: newTask,
-      complete: false,
-      notes: taskNotes
-    },
-    //on success...
-    success: function(response) {
-      //confirm success through logging message
-      console.log('task sent to server: ' + response);
-      getTasks();
-      $('#taskIn').val('');
-      $('#notesIn').val('');
-    }//end success
-  });//end POST
-  }//end addTask
+  //check if input fields are empty, ifos propmt user to fill them
+  if($('#taskIn').val() === '') {
+    alert('Be sure to add your task!');
+  }
+  else {
+    //send task obj to server
+    $.ajax({
+      type: 'POST',
+      url: '/tasks',
+      data: {
+        newTask: newTask,
+        complete: false,
+        notes: taskNotes
+      },
+      //on success...
+      success: function(response) {
+        //confirm success through logging message
+        console.log('task sent to server: ' + response);
+        getTasks();
+        $('#taskIn').val('');
+        $('#notesIn').val('');
+      }//end success
+    });//end POST
+  }//end if
+}//end addTask
 
 //request to delete a task from the db
 function deleteTask() {
@@ -76,8 +82,10 @@ function deleteTask() {
 function swapStatus() {
   var status = $(this)[0].checked;
   console.log(status);
+
   var taskId = $(this).parent().parent().data('singleId');
   if(status) {
+    // $(this).parent().addClass('checkComplete');
     $(this).parent().parent().addClass('statusComplete');
     status = true;
   }
