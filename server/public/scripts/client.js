@@ -1,66 +1,3 @@
-// $(document).ready(function() {
-//   console.log('JQ linked');
-//   //on page load...
-//   getTasks();
-//   $('#addButton').on('click', addTask);
-// });//end onready
-//
-// //GET tasks stored in db to display on DOM
-// function getTasks() {
-//   $.ajax({
-//     type: 'GET',
-//     url: '/tasks',
-//     //on success...
-//     success: function(response) {
-//       //verify data from db
-//       console.log('Retrieved tasks from db: ', response);
-//       //call to display tasks on DOM
-//       displayOnDom(response);
-//     }//end success
-//   });//end get
-// }//end getTasks
-//
-// //send a new task to the server to POST in db
-// function addTask() {
-//   //retrieve user input and format as obj
-//   var newTask = $('#taskIn').val();
-//   var taskNotes = $('#notesIn').val();
-//   //send task obj to server
-//   $.ajax({
-//     type: 'POST',
-//     url: '/tasks',
-//     data: {
-//       newTask: newTask,
-//       complete: false,
-//       notes: taskNotes
-//     },
-//     //on success...
-//     success: function(response) {
-//       //confirm object sent to server
-//       console.log('task sent to server: ' + response);
-//       getTasks();
-//     }//end success
-//   });//end post
-//   }//end addTask
-//
-// //append tasks to DOM
-// function displayOnDom(tasksFromDb) {
-//   //clear div before appending updated task list
-//   $('#tasksDiv').empty();
-//   //append tasks to DOM
-//   for (var i = 0; i < tasksFromDb.tasks.length; i++) {
-//     var singleTask = tasksFromDb.tasks[i].task;
-//     var singleNote = tasksFromDb.tasks[i].notes;
-//     var singleId = tasksFromDb.tasks[i].id;
-//     var $tr = $('<tr></tr>');
-//     $tr.data('singleId', singleId);
-//     $tr.append('<td>' + singleTask + '</td>');
-//     $tr.append('<td>' + singleNote + '</td>');
-//     $('#tasksDiv').append($tr);
-//   }//end for
-// }//end displayOnDom
-
-
 $(document).ready(function() {
   console.log('JQ linked');
   //on page load...
@@ -113,9 +50,8 @@ function addTask() {
 
 //request to delete a task from the db
 function deleteTask() {
-  console.log($(this));
-  console.log($(this).parent().data('singleId'));
-  var taskId = $(this).parent().data('singleId');
+  console.log($(this).parent().parent().data('singleId'));
+  var taskId = $(this).parent().parent().data('singleId');
   $.ajax({
     type: 'DELETE',
     url: '/tasks',
@@ -127,6 +63,7 @@ function deleteTask() {
       getTasks();
     }//end success
   });//end DELETE
+  getTasks();
 }//end deleteTask
 
 //change completion status of a task
@@ -143,8 +80,9 @@ function displayOnDom(tasksFromDb) {
     var singleTask = tasksFromDb.tasks[i].task;
     var singleNote = tasksFromDb.tasks[i].notes;
     var singleId = tasksFromDb.tasks[i].id;
-    console.log(singleTask);
-    console.log(singleNote);
+    // console.log(singleTask);
+    // console.log(singleNote);
+    // console.log(singleId);
     var $tr = $('<tr></tr>');
     $tr.data('singleId', singleId);
     $tr.append('<td><input type="checkbox" class="status" data-id="' + singleId + '"></td>');
@@ -156,5 +94,3 @@ function displayOnDom(tasksFromDb) {
   var $trLast = $('<tr id="lastRow"><td></td><td></td><td></td><td></td></tr>');
   $('#appendedTasks').append($trLast);
 }//end displayOnDom
-
-//instead of storing sample task in db, append sample text to DOM on page load a have that overwritten by tasks stored in db if they exist, on page load
