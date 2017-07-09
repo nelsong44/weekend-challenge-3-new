@@ -82,16 +82,17 @@ function deleteTask() {
 function swapStatus() {
   var status = $(this)[0].checked;
   console.log(status);
-
+  var task = $(this).parent().parent();
   var taskId = $(this).parent().parent().data('singleId');
   if(status) {
-    // $(this).parent().addClass('checkComplete');
     $(this).parent().parent().addClass('statusComplete');
     status = true;
+    $('#appendedTasks').append(task);
   }
-  else {
-    $(this).parent().parent().removeClass('statusComplete');
-    status = false;
+    else {
+      $(this).parent().parent().removeClass('statusComplete');
+      status = false;
+      $('#appendedTasks').prepend(task);
   }//end if
   $.ajax({
     type: 'PUT',

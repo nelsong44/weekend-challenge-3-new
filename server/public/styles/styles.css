@@ -7,10 +7,14 @@ header {
 }
 
 h1 {
-  font-family: 'Acme', sans-serif;
+  /*font-family: 'Acme', sans-serif;*/
+  /*font-family: 'Changa', sans-serif;*/
+  /*font-family: 'Life Savers', cursive;*/
+  font-family: 'Waiting for the Sunrise', cursive;
   width: 30%;
-  margin: 20px auto;
+  margin: 20px auto -3px auto;
   border-radius: 5px;
+letter-spacing: 2px;
 }
 
 .container {
@@ -67,6 +71,7 @@ th {
   background-color: #2471A3;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 16px;
+  font-weight: lighter;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -116,7 +121,7 @@ background-color: rgba(52, 152, 219, 0.3);
 }
 
 #addButton {
-  background-color: #3AA6EE;
+  background-color: #50ABCF;
   border-radius: 5px;
   border: none;
   font-weight: bold;
