@@ -1,9 +1,16 @@
-.statusComplete {
-  text-decoration: line-through;
-}
-
 h1, #userInputDiv, table, th {
   text-align: center;
+}
+
+header {
+  width: 100%;
+}
+
+h1 {
+  font-family: 'Acme', sans-serif;
+  width: 30%;
+  margin: 20px auto;
+  border-radius: 5px;
 }
 
 .container {
@@ -22,6 +29,7 @@ h1, #userInputDiv, table, th {
 
 #tasksDiv {
   width: 100%;
+  background-color: #ffffff;
 }
 
 table {
@@ -31,8 +39,7 @@ table {
   border-spacing: 0;
 }
 
-td:nth-child(2), td:nth-child(3) {
-  border-left: 1px solid #ABB2B9;
+td:nth-child(2) {
   border-right: 1px solid #ABB2B9;
 }
 
@@ -43,15 +50,20 @@ tr:last-child td:nth-child(2), tr:last-child td:nth-child(3) {
 
 tr {
   line-height: 2em;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 13px;
 }
 
 tr:nth-child(odd) {
-  /*background: rgba(186, 74, 0, 0.2);*/
   background-color: #EAEDED;
 }
 
 th {
   background-color: #2471A3;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 th:first-child {
@@ -77,14 +89,34 @@ tr:last-child td:last-child {
 }
 
 td:first-child {
-  background-color: rgba(52, 152, 219, 0.4);
+  background-color: rgba(52, 152, 219, 0.3);
+}
+
+td:nth-child(4) {
+  background-color: rgba(21, 67, 96, 0.3);
 }
 
 td:last-child {
-  background-color: rgba(21, 67, 96, 0.4);
+background-color: rgba(52, 152, 219, 0.3);
 }
 
 #lastRow {
   height: 10px;
   background-color: #2471A3;
+}
+
+.statusComplete {
+  text-decoration: line-through;
+  color: rgb(230, 126, 34);
+}
+
+#addButton {
+  background-color: rgb(230, 126, 34);
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+#taskIn, #notesIn, #addButton {
+  height: 20px;
 }
