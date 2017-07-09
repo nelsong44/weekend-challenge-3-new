@@ -88,6 +88,7 @@ function swapStatus() {
     $(this).parent().parent().addClass('statusComplete');
     status = true;
     $('#appendedTasks').append(task);
+    alert('Way to Go!');
   }
     else {
       $(this).parent().parent().removeClass('statusComplete');
@@ -126,6 +127,4 @@ function displayOnDom(tasksFromDb) {
     $tr.append('<td><button class="edit" data-id="' + singleId + '"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>');
     $('#appendedTasks').append($tr);
   }//end for
-  var $trLast = $('<tr id="lastRow"><td></td><td></td><td></td><td></td><td></td></tr>');
-  $('#appendedTasks').append($trLast);
 }//end displayOnDom

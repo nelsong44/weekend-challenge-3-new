@@ -6,11 +6,16 @@ header {
   width: 100%;
 }
 
+img{
+width: 40px;
+height: 40px;
+}
+
 h1 {
   /*font-family: 'Acme', sans-serif;*/
   /*font-family: 'Changa', sans-serif;*/
-  /*font-family: 'Life Savers', cursive;*/
-  font-family: 'Waiting for the Sunrise', cursive;
+  font-family: 'Life Savers', cursive;
+  /*font-family: 'Waiting for the Sunrise', cursive;*/
   width: 30%;
   margin: 20px auto -3px auto;
   border-radius: 5px;
@@ -25,6 +30,7 @@ letter-spacing: 2px;
 .innerContainer {
   width: 60%;
   margin: 0 auto;
+  padding: 20px;
 }
 
 #userInputDiv {
@@ -52,11 +58,6 @@ td:nth-child(2) {
   border-right: 1px solid #ABB2B9;
 }
 
-tr:last-child td:nth-child(2), tr:last-child td:nth-child(3) {
-  border-left: none;
-  border-right: none;
-}
-
 tr {
   line-height: 2em;
   font-family: Verdana, Geneva, sans-serif;
@@ -64,7 +65,11 @@ tr {
 }
 
 tr:nth-child(odd) {
-  background-color: #EAEDED;
+  background-color: #E1E2E2;
+}
+
+tr:nth-child(even) {
+  background-color: #F3F3F5;
 }
 
 th {
@@ -108,11 +113,6 @@ td:nth-child(4) {
 
 td:last-child {
 background-color: rgba(52, 152, 219, 0.3);
-}
-
-#lastRow {
-  height: 10px;
-  background-color: #2471A3;
 }
 
 .statusComplete {
