@@ -2,9 +2,11 @@ $(document).ready(function() {
   console.log('JQ linked');
   //on page load...
   getTasks();
+  //click events...
   $('#addButton').on('click', addTask);
   $('#tasksDiv').on('click', '.delete', deleteTask);
   $('#tasksDiv').on('click', '.status', swapStatus);
+  // $('#tasksDiv').on('click', '.edit', editTask);
 });//end onready
 
 //GET tasks stored in db to display on DOM
@@ -78,8 +80,18 @@ function deleteTask() {
       }//end if
 }//end deleteTask
 
+//edit existing task
+// function editTask() {
+//   var taskId = $(this).parent().parent().data('singleId');
+//   var taskEl = $(this).parent().parent().children()[1];
+//   var notesEl = $(this).parent().parent().children()[2];
+//   var task = $('#taskIn').val(taskEl.innerHTML);
+//   var notes = $('#notesIn').val(notesEl.innerHTML);
+// }//end editTask
+
 //change completion status of a task
 function swapStatus() {
+  // var status = $(this)[0].checked;
   var status = $(this)[0].checked;
   console.log(status);
   var task = $(this).parent().parent();
@@ -118,7 +130,6 @@ function displayOnDom(tasksFromDb) {
     var singleNote = tasksFromDb.tasks[i].notes;
     var singleId = tasksFromDb.tasks[i].id;
     var $tr = $('<tr></tr>');
-    // var $td = $('<td></td>');
     $tr.data('singleId', singleId);
     $tr.append('<td><input type="checkbox" class="status" data-id="' + singleId + '"></td>');
     $tr.append('<td>' + singleTask + '</td>');

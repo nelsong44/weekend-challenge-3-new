@@ -74,6 +74,7 @@ tr:nth-child(even) {
 
 th {
   background-color: #2471A3;
+  color: #F2F2F2;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 16px;
   font-weight: lighter;
@@ -117,7 +118,7 @@ background-color: rgba(52, 152, 219, 0.3);
 
 .statusComplete {
   text-decoration: line-through;
-  color: #38B16D;
+  color: rgba(56, 177, 109, 0.3);
 }
 
 #addButton:hover {
